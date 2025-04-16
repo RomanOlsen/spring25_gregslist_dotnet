@@ -2,6 +2,8 @@ namespace spring25_gregslist_dotnet.Models;
 
 public class House
 {
+
+  public string Name { get; set; }
   public int SquareFt { get; set; }
   public int Bedrooms { get; set; }
   public int Bathrooms { get; set; }

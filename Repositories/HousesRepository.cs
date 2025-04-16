@@ -17,4 +17,12 @@ public class HousesRepository
     List<House> houses = _db.Query<House>(sqlCommand).ToList();
     return houses;
   }
+
+  internal House GetHouseById(int houseId)
+  {
+    string sqlCommand = "SELECT * FROM houses WHERE id = @houseId;";
+
+    House house = _db.Query(sqlCommand, (House house)
+    return house;
+  }
 }

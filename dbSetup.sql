@@ -55,6 +55,7 @@ UPDATE cars SET make = "mazda", model = "miata" WHERE id = 5 LIMIT 1;
 
 CREATE TABLE houses(
  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ name TINYTEXT NOT NULL,
  squareFt INT NOT NULL,
  bedrooms INT NOT NULL,
  bathrooms DOUBLE NOT NULL,
@@ -65,4 +66,11 @@ createdAt DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Time Created',
 updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Last Update'
 );
 
-drop TABLE houses;
+INSERT INTO houses
+(name, `squareFt`, bedrooms, bathrooms, `imgUrl`, description, price)
+VALUES
+("romans house", 2200, 4, 3, "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "this is a description", 650000), 
+("jakes house", 1900, 3, 2, "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "this is also a description", 554214);
+
+-- drop TABLE houses;
+
