@@ -20,9 +20,10 @@ public class HousesRepository
 
   internal House GetHouseById(int houseId)
   {
-    string sqlCommand = "SELECT * FROM houses WHERE id = @houseId;";
+    throw new Exception();
+    // string sqlCommand = "SELECT * FROM houses WHERE id = @houseId;";
 
-    House house = _db.Query(sqlCommand, (House house)
-    return house;
+    // House house = _db.Query(sqlCommand, (House house));
+    // return house;
   }
 }
