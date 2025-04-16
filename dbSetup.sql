@@ -62,15 +62,18 @@ CREATE TABLE houses(
  imgUrl VARCHAR(255) NOT NULL,
  description VARCHAR(255) NOT NULL,
  price INT NOT NULL,
+ creatorId VARCHAR(255) not null,
+   FOREIGN KEY (creatorId) REFERENCES accounts(id) ON DELETE CASCADE,
 createdAt DATETIME DEFAULT CURRENT_TIMESTAMP COMMENT 'Time Created',
 updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Last Update'
 );
 
 INSERT INTO houses
-(name, `squareFt`, bedrooms, bathrooms, `imgUrl`, description, price)
+(creatorId, name, `squareFt`, bedrooms, bathrooms, `imgUrl`, description, price)
 VALUES
-("romans house", 2200, 4, 3, "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "this is a description", 650000), 
-("jakes house", 1900, 3, 2, "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "this is also a description", 554214);
+("67f82097d3797a216fe7627f","romans house", 2200, 4, 3, "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "this is a description", 650000), 
+("67f82097d3797a216fe7627f","jakes house", 1900, 3, 2, "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", "this is also a description", 554214);
 
--- drop TABLE houses;
+drop TABLE houses;
+
 
