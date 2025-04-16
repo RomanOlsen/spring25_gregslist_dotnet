@@ -57,4 +57,14 @@ public class HousesRepository
     return house;
 
   }
+
+  internal void DeleteHouse(int houseId)
+  {
+    string sqlCommand = @"DELETE FROM houses WHERE id = @houseId LIMIT 1;";
+    int rows = _db.Execute(sqlCommand, new { houseId });
+    if (rows == 0)
+    {
+      throw new Exception("House not found. No rows deleted.");
+    }
+  }
 }

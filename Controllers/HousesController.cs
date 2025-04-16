@@ -60,4 +60,21 @@ public class HousesController : ControllerBase
       return BadRequest(error.Message);
     }
   }
+
+  [Authorize]
+  [HttpDelete("{houseId}")]
+  public async Task<ActionResult<string>> DeleteHouse(int houseId)
+  {
+    try
+    {
+      Account userInfo = await _auth0Provider.GetUserInfoAsync<Account>(HttpContext);
+      string message = _housesService.DeleteHouse(houseId, userInfo);
+      return Ok(message);
+
+    }
+    catch (Exception error)
+    {
+      return BadRequest(error.Message);
+    }
+  }
 }

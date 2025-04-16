@@ -32,4 +32,15 @@ public class HousesService
     House house = _housesRepository.PostHouse(housePayload);
     return house;
   }
+
+  internal string DeleteHouse(int houseId, Account userInfo)
+  {
+    House house = GetHouseById(houseId);
+    if (house.CreatorId != userInfo.Id)
+    {
+      throw new Exception("You are forbidden to do that. Thats not your house mick!");
+    }
+    _housesRepository.DeleteHouse(houseId);
+    return "House has been deleted!";
+  }
 }
