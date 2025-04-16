@@ -6,6 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using MySqlConnector;
+using spring25_gregslist_dotnet.Repositories;
+using spring25_gregslist_dotnet.Services;
 
 namespace gregslist_dotnet;
 
@@ -39,6 +41,11 @@ public class Startup
 
     services.AddScoped<CarsService>();
     services.AddScoped<CarsRepository>();
+
+    services.AddScoped<HousesService>();
+    services.AddScoped<HousesRepository>();
+
+
   }
 
   private void ConfigureCors(IServiceCollection services)
