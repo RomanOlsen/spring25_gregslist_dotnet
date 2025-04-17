@@ -43,4 +43,20 @@ public class HousesService
     _housesRepository.DeleteHouse(houseId);
     return "House has been deleted!";
   }
+
+  internal House UpdateHouse(int houseId, Account userInfo, House housePayload)
+  {
+    House house = GetHouseById(houseId);
+    if (house.CreatorId != userInfo.Id)
+    {
+      throw new Exception("You are forbidden to do that. Thats not your house mick!");
+    }
+
+house.Price = housePayload.Price ?? house.Price;
+house.Name = housePayload.Name ?? house.Name;
+
+
+    House updatedHouse = _housesRepository.UpdateHouse(house);
+    return updatedHouse;
+  }
 }

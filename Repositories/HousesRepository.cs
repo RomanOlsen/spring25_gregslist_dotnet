@@ -67,4 +67,19 @@ public class HousesRepository
       throw new Exception("House not found. No rows deleted.");
     }
   }
+
+  internal House UpdateHouse(House house)
+  {
+    string sqlCommand = @"UPDATE houses
+SET
+name = @Name,
+price = @Price,
+WHERE id = @Id
+LIMIT 1;";
+
+    int rowsAffected = _db.Execute(sqlCommand, house);
+
+    return house;
+
+  }
 }
